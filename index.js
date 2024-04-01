@@ -1,6 +1,7 @@
 import inquirer from 'inquirer';
 import qr from 'qr-image';
 import fs from "fs";
+import { log } from 'console';
 inquirer
 .prompt([
   {
@@ -21,7 +22,9 @@ inquirer
   })
   .catch((error) => {
     if (error.isTtyError) {
+      console.log("It is an TtyError which is : ",error.isTtyError);
     } else {
+      console.log(`Due to this ${error} error the system crashed`);
     }
   });
 
